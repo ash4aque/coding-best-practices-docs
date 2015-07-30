@@ -1,0 +1,278 @@
+{
+  "sections": {
+    "1": {
+      "proseFile": "1.md"
+    },
+    "2":  {
+      "proseFile": "2.md"
+    },
+    "3": {
+      "proseFile": "3.md"
+    },
+    "4": {
+      "children": {
+        "4.1": {
+          "proseFile": "4.1.md"
+        }
+      }
+    },
+    "5": {
+      "proseFile": "5.md"
+    },
+    "6": {
+      "children": {
+        "6.1": {
+          "exampleFile": "base-headings.html"
+        },
+        "6.2": {
+          "exampleFile": "base-body-text.html"
+        },
+        "6.4": {
+          "exampleFile": "base-links.html"
+        },
+        "6.6": {
+          "exampleFile": "base-description-lists.html"
+        }
+      }
+    },
+    "7": {
+      "children": {
+        "7.1": {
+          "exampleFile": "buttons-standard.html",
+          "children": {
+            "7.1.1": {
+              "exampleFile": "buttons-links.html"
+            }
+          }
+        },
+        "7.2": {
+          "exampleFile": "buttons-mini.html"
+        },
+        "7.3": {
+          "exampleFile": "buttons-progress.html"
+        },
+        "7.4": {
+          "exampleFile": "buttons-voting.html"
+        },
+        "7.5": {
+          "exampleFile": "buttons-badge.html"
+        },
+        "7.6": {
+          "exampleFile": "buttons-badge-groups.html"
+        }
+      }
+    },
+    "8": {
+      "children": {
+        "8.1": {
+          "exampleFile": "components-modal.html"
+        },
+        "8.2": {
+          "exampleFile": "components-alert-modal.html"
+        },
+        "8.3": {
+          "exampleFile": "components-dropdowns.html"
+        },
+        "8.4": {
+          "exampleFile": "components-flyout.html"
+        },
+        "8.5": {
+          "exampleFile": "components-flyout-sizes.html"
+        },
+        "8.6": {
+          "exampleFile": "components-flyout-alignment.html"
+        },
+        "8.7": {
+          "exampleFile": "components-flyout-close-button.html"
+        },
+        "8.8": {
+          "exampleFile": "components-meter.html",
+          "children": {
+            "8.8.1": {
+              "exampleFile": "components-meter-circle.html"
+            }
+          }
+        },
+        "8.9": {
+          "exampleFile": "components-spinner.html"
+        },
+        "8.10": {
+          "exampleFile": "components-zoom.html"
+        },
+        "8.11": {
+          "exampleFile": "components-play-button.html"
+        },
+        "8.12": {
+          "exampleFile": "components-error-text.html"
+        },
+        "8.13": {
+          "exampleFile": "components-wells.html"
+        },
+        "8.14": {
+          "exampleFile": "components-media-object.html"
+        },
+        "8.15": {
+          "exampleFile": "components-separator.html"
+        },
+        "8.16": {
+          "exampleFile": "components-tables.html",
+          "children": {
+            "8.16.1": {
+              "exampleFile": "components-tables-col-headers.html"
+            },
+            "8.16.2": {
+              "exampleFile": "components-tables-col-row-headers.html"
+            }
+          }
+        }
+      }
+    },
+    "9": {
+      "children": {
+        "9.1": {
+          "exampleFile": "nav-persistent-subnav.html"
+        },
+        "9.2": {
+          "exampleFile": "nav-back-to-top.html"
+        },
+        "9.3": {
+          "exampleFile": "nav-breadcrumbs.html"
+        }
+      }
+    },
+    "10": {
+      "children": {
+        "10.1": {
+          "exampleFile": "product-expander.html"
+        },
+        "10.2": {
+          "exampleFile": "product-shelf-sidebar.html"
+        },
+        "10.3": {
+          "exampleFile": "product-stars.html"
+        },
+        "10.4": {
+          "exampleFile": "product-display-price.html"
+        },
+        "10.5": {
+          "exampleFile": "product-flags.html"
+        }
+      }
+      },
+    "11": {
+      "children": {
+        "11.1": {
+          "exampleFile": "variant-swatcher.html"
+        },
+        "11.2": {
+          "exampleFile": "variant-color.html"
+        },
+        "11.3": {
+          "exampleFile": "variant-mini.html"
+        },
+        "11.4": {
+          "exampleFile": "variant-expanded.html"
+        }
+      }
+      },
+    "12": {
+      "children": {
+        "12.1": {
+          "exampleFile": "paginator-button.html"
+        },
+        "12.2": {
+          "exampleFile": "paginator-hairline-button.html",
+          "children": {
+            "12.2.1": {
+              "exampleFile": "paginator-hairline-button-positioned.html"
+            }
+          }
+        },
+        "12.3": {
+          "exampleFile": "paginator-list.html"
+        },
+        "12.4": {
+          "exampleFile": "paginator.html"
+        },
+        "12.5": {
+          "exampleFile": "paginator-carousel.html"
+        },
+        "12.6": {
+          "exampleFile": "paginator-chapter.html"
+        }
+      }
+    },
+    "13": {
+      "children": {
+        "13.1": {
+          "exampleFile": "form-control.html",
+          "children": {
+            "13.1.1": {
+              "exampleFile": "form-control-mini.html"
+            }
+          }
+        },
+        "13.2": {
+          "exampleFile": "form-validation-markers.html"
+        },
+        "13.3": {
+          "exampleFile": "form-inline.html",
+          "children": {
+            "13.3.1": {
+              "exampleFile": "form-flex.html"
+            },
+            "13.3.2": {
+              "exampleFile": "form-arrange.html"
+            }
+          }
+        },
+        "13.4": {
+          "exampleFile": "form-chooser.html"
+        },
+        "13.5": {
+          "exampleFile": "form-option.html",
+          "children": {
+            "13.5.1": {
+              "exampleFile": "form-option-valign.html"
+            }
+          }
+        },
+        "13.6": {
+          "exampleFile": "form-radio.html"
+        },
+        "13.7": {
+          "exampleFile": "form-radio-option.html"
+        },
+        "13.8": {
+          "exampleFile": "form-expanded-radio-options.html"
+        },
+        "13.9": {
+          "exampleFile": "form-alerts.html"
+        }
+      }
+    },
+    "14": {
+      "children": {
+        "14.1": {
+          "exampleFile": "product-tile-brick.html"
+          },
+        "14.2": {
+          "exampleFile": "product-tile-tile.html"
+          },
+        "14.3": {
+          "exampleFile": "product-tile-grid-tile.html"
+          },
+        "14.4": {
+          "exampleFile": "product-tile-landscape-tile.html"
+        }
+      }
+    },
+    "16": {
+      "children": {
+        "16.4": {
+          "exampleFile": "visuallyhidden.html"
+        }
+      }
+    }
+  }
+}

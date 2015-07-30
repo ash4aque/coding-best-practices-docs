@@ -1,0 +1,105 @@
+# Graph of service calls dependencies for new site frontend.
+# Note that this is not a sequence diagram.
+#
+# Generate diagram with:
+#   dot -T png -o atlas-service-calls.png atlas-service-calls.dot
+#
+# DO NOT COMMIT PNG FILE TO GIT REPO.
+#
+
+digraph Architecture {
+    graph [
+        dpi=180;
+        rankdir=LR;
+        fontname="Helvetica Neue";
+        fontsize=8;
+        ranksep=1.0;
+    ]
+
+    node [fontname="Helvetica Neue", fontsize=8, shape=record]
+    edge [fontname="Helvetica Neue", fontsize=8, arrowhead=none]
+
+    subgraph cluster_services {
+        style=filled;
+        label=<<B>Pangaea Services</B>>;
+        fill=lightgray;
+        node [style=filled, fillcolor=white]
+
+        iro_service [label="IRO API"];
+        checkout_service [label="Checkout API"];
+        cart_service [label="Cart API"];
+        groupings_service [label="Groupings API"];
+        customer_account_service [label="Customer Account API"];
+        lists_service [label="Lists API"];
+        payment_service [label="Payment API"];
+        order_services_service [label="Order Services API"];
+
+    }
+
+    subgraph pages {
+        rank=same;
+
+        registry_lists_page [label="Registry/Lists page"];
+        home_page [label="Home page"];
+        checkout_page [label="Checkout page"];
+        cart_page [label="Cart page"];
+        search_page [label="Search page"];
+        category_page [label="Category page"];
+        store_finder_page [label="Store Finder page"];
+        product_page [label="Product page"];
+        groupings_page [label="Groupings page"];
+        account_page [label="Account page"];
+        browse_page [label="Browse page"];
+        topic_page [label="Topic page"];
+
+        browse_page -> search_page [label="URL rewrite"];
+    }
+
+    subgraph nonpangaea_services {
+        CSL [label="Customer Store Location"];
+        IRS [label="IRS\n(personalized recommendations)"];
+        Midas;
+        Polaris;
+        Preso;
+        reviews_proxy [label="Reviews proxy"];
+        secaas [label="SECaaS\n(in-browser CC encryption)"];
+        SEO [label="SEO meta data"];
+        store_finder_service [label="Store Finder API"];
+        topic_page_service [label="Topic page service"];
+    }
+
+    subgraph cluster_node_services {
+        style=filled;
+        label="Node";
+        fill=lightgray;
+        node [style=filled, fillcolor=white;]
+
+        node_checkout [label="Node Checkout"];
+        node_cart [label="Node Cart"];
+        node_payment_service [label="Node Payment"];
+        node_registry_lists_service [label="Node Registry/Lists"];
+        node_order_services_service [label="Node Order Services"];
+    }
+
+    checkout_page -> node_checkout -> checkout_service;
+    checkout_page -> secaas;
+    home_page, product_page -> reviews_proxy;
+    cart_page -> node_cart -> cart_service, lists_service;
+    home_page, product_page, category_page -> iro_service;
+    product_page -> IDML;
+    home_page, search_page, category_page -> Preso;
+    checkout_page, category_page, product_page, search_page, store_finder_page -> CSL;
+    Preso -> Polaris, iro_service;
+    checkout_page -> node_payment_service -> payment_service;
+    registry_lists_page -> node_registry_lists_service -> lists_service;
+    product_page, home_page, registry_lists_page, search_page -> IRS;
+    store_finder_page -> store_finder_service;
+    groupings_page -> groupings_service, IDML, reviews_proxy;
+    account_page -> node_order_services_service -> order_services_service;
+    account_page -> customer_account_service;
+    topic_page, home_page, product_page -> Midas;
+    topic_page -> topic_page_service -> Polaris;
+    home_page, category_page -> Tempo;
+    CSL -> store_finder_service;
+    home_page, category_page, product_page, search_page -> SEO;
+ }

@@ -1,0 +1,43 @@
+<section class="guide-example-group" id="example-{{slug header}}">
+  <h3 class="guide-subhead guide-example-heading">
+    <span class="guide-anchor" id="{{reference}}-{{slug header}}"></span>
+    <span class="guide-subhead-reference">{{reference}}</span> {{header}}
+    <a href="#{{reference}}-{{slug header}}">#</a>
+  </h3>
+
+  <div class="guide-example">
+    {{#if description}}
+      <div class="guide-example-section {{#if deprecated}}guide-example-section-deprecated{{/if}}">
+        <div class="guide-example-description module">
+          {{{description}}}
+        </div>
+      </div>
+    {{/if}}
+
+    {{#if markup}}
+      <div class="guide-example-section guide-example-section-default">
+        <div class="guide-example-markup module">
+          {{{markup}}}
+        </div>
+      </div>
+    {{/if}}
+
+    {{#each modifiers}}
+      <div class="guide-example-section guide-example-section-{{slug data.name}}">
+        <p class="guide-example-modifier">{{name}}</p>
+
+        <div class="guide-example-markup module">
+          {{{markup}}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  {{#if markup}}
+    <div class="guide-code-expander">
+      <button class="guide-code-toggle js-code-toggle">Code</button>
+
+      <pre class="guide-code-block"><code>{{{highlight markup}}}</code></pre>
+    </div>
+  {{/if}}
+</section>

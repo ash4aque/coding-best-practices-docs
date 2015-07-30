@@ -1,0 +1,929 @@
+/* ==========================================================================
+   Elements
+   ========================================================================== */
+
+pre,
+code {
+  padding: 1px 3px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fafafa;
+  font-family: $code;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+pre {
+  margin: 24px 0 0;
+  padding: 0.75em 10px 0.75em 15px;
+  border: 1px solid #d9d9d9;
+
+  background-color: #fafafa;
+  color: #888;
+  line-height: 1.5;
+  white-space: pre;
+  word-wrap: normal;
+
+  code {
+    display: block;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+    color: #333;
+    white-space: pre;
+    word-wrap: normal;
+  }
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.guide-content {
+  // TODO: Investigate why IE11 is not respecting normalize.css's display block
+  // declaration for main.
+  display: block;
+  min-height: 100vh;
+  padding: 72px 0;
+
+  background: $white;
+}
+
+.guide-slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.guide-slider {
+  position: relative;
+  left: 0;
+  z-index: 301;
+
+  transition: 0.2s ease transform;
+
+  .is-navigable & {
+    transform: translate3d(225px, 0, 0);
+  }
+
+  .no-csstransforms3d & {
+    transition: 0.2s ease left;
+  }
+
+  .no-csstransforms3d .is-navigable & {
+    left: 225px;
+  }
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.guide-header {
+  font-smoothing();
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 302;
+
+  color: $white;
+}
+
+
+.guide-logo {
+  margin: 6px 0 0;
+
+  color: $white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+
+.guide-nav-toggle {
+  height: 44px;
+  margin-left: -14px;
+  padding: 0 14px;
+  border: 0;
+
+  background: transparent;
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: $yellow-secondary;
+    outline: none;
+  }
+
+  &:active {
+    color: $yellow;
+  }
+}
+
+.guide-nav-close {
+  font-smoothing();
+
+  margin-bottom: 0;
+  width: 100%;
+  padding: 0 15px 7px;
+  border: 0;
+
+  background: transparent;
+  color: $white;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: right;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+
+  &:before {
+    font-smoothing("off");
+
+    content: "\00d7";
+    position: relative;
+    top: 0;
+
+    margin-right: 5px;
+
+    font-size: 14px;
+    font-weight: bolder;
+  }
+
+  &:hover,
+  &:focus {
+    color: $blue-tertiary;
+    outline: none;
+  }
+
+  &:active {
+    color: $blue-secondary;
+  }
+}
+
+.guide-nav {
+  font-smoothing();
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+
+  overflow: auto;
+  width: 225px;
+
+  background: $grey-dark;
+  -webkit-overflow-scrolling: touch;
+
+  ul {
+    margin: 0;
+    padding-left: 0;
+  }
+
+  a {
+    display: block;
+    padding: 5px 15px;
+
+    color: $white;
+    font-size: 18px;
+    font-weight: 400;
+
+    &:hover {
+      background-color: $blue-active;
+    }
+  }
+}
+
+.guide-nav-item-reference {
+  position: relative;
+  top: 5px;
+
+  display: inline-block;
+  width: 14px;
+  margin-right: 5px;
+  margin-left: -4px;
+
+  color: #999;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: right;
+  vertical-align: top;
+}
+
+.guide-subnav-item-reference {
+  display: inline-block;
+  margin-right: 5px;
+
+  color: #999;
+  font-size: 8px;
+}
+
+.guide-subnav-list {
+  display: none;
+  padding: 6px 0;
+
+  background: #333;
+
+  a {
+    background: #333;
+    color: $white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+.guide-heading {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.guide-heading-reference {
+  position: relative;
+  top: 12px;
+
+  display: inline-block;
+  margin-right: 10px;
+
+  color: #ccc;
+  font-size: 22px;
+  vertical-align: top;
+}
+
+.guide-subhead-reference {
+  position: relative;
+  top: 5px;
+
+  display: inline-block;
+  margin-right: 5px;
+
+  color: #aaa;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+.guide-heading, .guide-subhead {
+  a {
+    display: none;
+    padding-left: 3px;
+
+    color: $grey-cool;
+    font-size: .8em;
+  }
+
+  &:hover a {
+    display: inline;
+  }
+}
+
+.guide-anchor {
+  position: relative;
+  top: -75px;
+
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+/* ==========================================================================
+   Examples
+   ========================================================================== */
+
+.guide-example-group {
+  margin: 24px 0 0;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+
+  .guide-example,
+  .guide-code-block {
+    margin: 0
+    border: 0;
+    border-radius: 0;
+  }
+
+  .guide-example {
+    padding: 0;
+  }
+
+  .guide-code-block {
+    border-top: 1px solid #d9d9d9;
+    border-radius: 0 0 3px 3px;
+
+    .guide-code-toggle & {
+      border-top: 0;
+    }
+  }
+}
+
+.guide-example-heading {
+  font-smoothing();
+
+  margin: 0;
+  padding: 8px 20px;
+  border-bottom: 1px solid #d9d9d9;
+  border-radius: 3px 3px 0 0;
+
+  background: #fafafa;
+  color: #444;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+.guide-example-section {
+  position: relative;
+
+  padding: 20px;
+  border-top: 1px solid #e5e5e5;
+
+  &:first-child {
+    border-top: 0;
+  }
+}
+
+.guide-example-section-deprecated {
+  border: 5px solid #d9d9d9;
+
+  background-color: #eee;
+  color: #111;
+
+  &:first-child {
+    border: 5px solid #d9d9d9;
+  }
+}
+
+.guide-example-modifier {
+  font-smoothing();
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin: 0;
+  padding: 2px 5px;
+  border-bottom: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+  border-radius: 0 0 0 2px;
+
+  background: #fafafa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.guide-code-expander {
+  clearfix();
+
+  border-radius: 0 0 3px 3px;
+
+  background: #eee;
+
+  &.is-expanded {
+    .guide-code-block {
+      display: block;
+    }
+  }
+
+  .guide-code-block {
+    display: none;
+    overflow: auto;
+  }
+}
+
+.guide-code-toggle {
+  position: relative;
+
+  display: block;
+  width: 100%;
+  padding: 3px 5px 5px;
+  border: 0;
+
+  background: transparent;
+  color: #999;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  text-align: right;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+
+  &:hover,
+  &:focus {
+    color: #666;
+    outline: none;
+  }
+
+  &:after {
+    content: "</>";
+
+    margin-left: 4px;
+
+    font-size: 13px;
+    font-weight: 700;
+  }
+}
+
+.guide-example {
+  margin: 24px 0 0;
+  padding: 24px 20px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+
+.guide-code-block {
+  margin: 24px 0 0;
+  padding: 0.75em 10px 0.75em 15px;
+  border: 1px solid #d9d9d9;
+
+  background-color: #fafafa;
+  color: #888;
+  line-height: 1.5;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.guide-table {
+  td {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-width: 1px 0 0 1px;
+
+    &:first-child {
+      border-left: 0;
+    }
+  }
+
+  tr:first-child td {
+    border-top: 0;
+  }
+}
+
+.guide-example-markup {
+  clearfix();
+}
+
+$description-max-width = 650px;
+
+.guide-example-description {
+  font-smoothing();
+
+  max-width: $description-max-width;
+
+  p {
+    margin-top: 16px;
+  }
+
+  ul, ol {
+    margin-top: 8px;
+  }
+
+  code {
+    font-size: 13px;
+  }
+}
+
+.guide-example-demo-button {
+  font-smoothing();
+
+  margin-left: 24px;
+  padding: 2px 8px;
+  border: 1px solid $grey-light;
+
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: left;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+
+.guide-grid {
+  margin: 24px 0 0;
+  margin: 1.5rem 0 0;
+
+  .grid {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.guide-grid-col {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #eee;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 0 1px 0 #fff;
+
+  .grid {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.guide-grid-col-nested {
+  padding: 0 5px;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   Colors
+   ========================================================================== */
+
+#example-colors {
+  .guide-example-description {
+    max-width: none;
+  }
+}
+
+.guide-color-list {
+  margin-top: -24px !important;
+
+  li {
+    margin-top: 24px;
+  }
+}
+
+.guide-color-swatch {
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.guide-color-block {
+  height: 80px;
+}
+
+.guide-color-details {
+  font-smoothing();
+
+  padding: 8px 10px;
+
+  background: #f5f5f5;
+  font-size: 14px;
+
+  p {
+    margin: 0;
+  }
+
+  code {
+    display: block;
+    padding: 0;
+    border: 0;
+
+    background: transparent;
+    font-size: 12px;
+  }
+}
+
+.guide-color-name {
+  margin: 0 0 6px;
+
+  color: #444;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.guide-color-variable {
+  font-weight: bold;
+}
+
+.guide-color-swatch-mini {
+  margin-top: 16px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .guide-color-block {
+    height: 26px;
+  }
+
+  .guide-color-details {
+    padding: 4px 6px;
+  }
+}
+
+.guide-color-block-mini {
+  width: 20px;
+  height: @width;
+}
+
+/* ==========================================================================
+   Breakpoints
+   ========================================================================== */
+
+#example-responsive-breakpoints {
+  .guide-example-description {
+    max-width: none;
+
+    p, pre, ul, ol {
+      max-width: $description-max-width;
+    }
+
+    table {
+      min-width: 100%;
+
+      tbody tr {
+        border-top: 1px solid #dedede;
+      }
+
+      th,
+      td {
+        padding: 0.4em 1em;
+      }
+
+      code {
+        display: inline-block;
+
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
+.guide-icons {
+  margin-top: 8px;
+
+  li {
+    float: left;
+    width: 50%;
+    margin-top: 16px;
+
+    vertical-align: top;
+  }
+
+  .wmicon {
+    width: 1em;
+    margin-right: 16px;
+
+    color: #222
+    vertical-align: middle;
+  }
+}
+
+.guide-icons-label {
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   Persistent Subnav
+   ========================================================================== */
+
+.guide-example-markup > {
+  .persistent-subnav {
+    position: static;
+  }
+
+  .persistent-nav-top {
+    position: static;
+
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Flags
+   ========================================================================== */
+
+#example-flags {
+  .flag-alt {
+    clear: both;
+    float: left;
+    margin-top: 10px;
+  }
+}
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+
+#example-modal,
+#example-alert-modal {
+  .modal {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    margin: 0;
+  }
+}
+
+/* ==========================================================================
+   Flyout
+   ========================================================================== */
+
+#example-flyout {
+  .guide-example-markup {
+    text-align: center;
+  }
+
+  .guide-example-section-default {
+    display: none;
+
+    + .guide-example-section {
+      border-top: 0;
+    }
+  }
+
+  .flyout-top {
+    margin-top: 80px;
+  }
+
+  .flyout-bottom {
+    margin-bottom: 80px;
+  }
+
+  .flyout-right,
+  .flyout-left {
+    margin: 20px 0;
+
+    .flyout-modal {
+      margin-top: -32px;
+    }
+  }
+}
+
+#example-flyout-sizes {
+  .guide-example-markup {
+    text-align: center;
+  }
+
+  .flyout-bottom {
+    margin-bottom: 80px;
+  }
+}
+
+#example-flyout-close-button {
+  .guide-example-markup {
+    text-align: center;
+  }
+
+  .flyout-bottom {
+    margin-bottom: 80px;
+  }
+}
+
+#example-flyout-alignment {
+  .guide-example-section-default {
+    display: none;
+  }
+
+  .guide-example-markup {
+    text-align: center;
+  }
+
+  .flyout-top {
+    margin-top: 80px;
+  }
+
+  .flyout-bottom {
+    margin-bottom: 80px;
+  }
+
+  .flyout-right,
+  .flyout-left {
+    margin: 50px 0;
+  }
+}
+
+/* ==========================================================================
+   Spinner
+   ========================================================================== */
+
+#example-spinner {
+  .guide-example-markup {
+    position: relative;
+
+    height: 60px;
+  }
+}
+
+/* ==========================================================================
+   Separator
+   ========================================================================== */
+
+#example-separator {
+  .separator-alt,
+  .separator-dotted {
+    margin-top: 36px;
+  }
+
+  .separator-alt {
+    position: relative;
+
+    &:before {
+      wmzindex("negative");
+
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      bottom: -20px;
+      left: -20px;
+
+      background: $blue-pale;
+    }
+  }
+}
+
+/* ==========================================================================
+   Zoom
+   ========================================================================== */
+
+#example-zoom {
+  .guide-example-markup {
+    padding: 20px;
+    border-radius: 6px;
+
+    background: $blue;
+  }
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+#example-validation-markers {
+  .form-inline {
+    margin-top: 24px;
+  }
+}
+
+#example-alert {
+  .guide-example-section-default {
+    display: none;
+
+    + .guide-example-section {
+      border-top: 0;
+    }
+  }
+}
+
+#example-vertically-centered-option {
+  .guide-example-markup {
+    max-width: 500px;
+  }
+}
+
+#example-expanded-radio-option {
+  .radio-expanded {
+    width: 350px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+
+#example-paginator-hairline-button {
+  .guide-example-section-paginator-hairline-btn-light,
+  .guide-example-section-paginator-hairline-btn-dark,
+  .guide-example-section-paginator-hairline-btn-largepaginator-hairline-btn-light,
+  .guide-example-section-paginator-hairline-btn-largepaginator-hairline-btn-dark {
+    background: $grey-cool-active;
+  }
+}
+
+#example-paginator-hairline-button-positioning {
+  .guide-example-section-default {
+    height: 120px;
+  }
+}

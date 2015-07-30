@@ -1,0 +1,131 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <title>{{meta.tenantName}} Web Style Guide</title>
+
+  <link rel="stylesheet" href="css/guide.min.css">
+
+  <!--[if lt IE 9]>
+    <script src="guide-js/html5shiv.min.js"></script>
+  <![endif]-->
+
+  {{#if meta.fontMyriad}}
+    <script type="text/javascript" src="//fonts.walmart.com/fqp0lia.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  {{/if}}
+
+  {{#if meta.fontLato}}
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+  {{/if}}
+
+  <script type="text/javascript">
+    window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS
+        ||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect
+        ||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")
+        ||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){
+        var a=t.document.createElement("link"),r=t.document.getElementsByTagName("script")[0];
+        a.rel="stylesheet",a.href=e[o&&n?0:o?1:2],a.media="only x",r.parentNode.insertBefore(a,r),
+        setTimeout(function(){a.media="all"})},a=new t.Image;a.onerror=function(){o(!1)},
+        a.onload=function(){o(1===a.width&&1===a.height)},
+        a.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon([
+        "static/gen/css/icons.data.svg.css",
+        "static/gen/css/icons.data.png.css",
+        "static/gen/css/icons.fallback.css"
+      ]);
+  </script>
+</head>
+
+<body>
+  <div class="guide-slider-wrapper">
+    <header class="guide-header guide-slider">
+      <div class="container container-responsive clearfix">
+        <button class="guide-nav-toggle js-nav-toggle pull-left">
+          <i class="wmicon wmicon-menu"></i>
+          <span class="visuallyhidden">Menu</span>
+        </button>
+
+        <h1 class="guide-logo pull-left">{{meta.tenantName}} Web Style Guide</h1>
+      </div>
+    </header>
+  </div>
+
+  <nav class="guide-nav">
+    <button class="guide-nav-close js-nav-toggle">Close</button>
+
+    <ul class="block-list guide-nav-list">
+      {{#each sections}}
+        <li class="guide-nav-item">
+          <a href="#{{reference}}-{{slug header}}">
+            <span class="guide-nav-item-reference">{{reference}}</span>
+            {{header}}
+          </a>
+
+          {{#if children}}
+            <ul class="guide-subnav-list">
+              {{#each children}}
+                <li class="guide-subnav-item">
+                  <a href="#{{reference}}-{{slug header}}">
+                    <span class="guide-subnav-item-reference">{{reference}}</span>
+                    {{header}}
+                  </a>
+
+                  {{#if children}}
+                    <ul>
+                      {{#each children}}
+                        <li class="guide-subnav-item">
+                          <a href="#{{reference}}-{{slug header}}">
+                            <span class="guide-subnav-item-reference">{{reference}}</span>
+                            {{header}}
+                          </a>
+                        </li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+
+  <div class="guide-slider-wrapper">
+    <main class="guide-content guide-slider">
+      <div class="container container-responsive module">
+        {{#each sections}}
+
+          <h2 class="guide-heading">
+            <span class="guide-anchor" id="{{reference}}-{{slug header}}"></span>
+            <span class="guide-heading-reference">{{reference}}</span> {{header}}
+            <a href="#{{reference}}-{{slug header}}">#</a>
+          </h2>
+
+          {{{description}}}
+
+          {{#each children}}
+            {{>section}}
+
+            {{#each children}}
+              {{>section}}
+            {{/each}}
+          {{/each}}
+        {{/each}}
+      </div>
+    </main>
+  </div>
+
+<script src="js/lib/requirejs/require.js"></script>
+<script src="guide-bundle.js"></script>
+<script>
+  require(["guide-js/guide"], function (guide) {
+    guide.init();
+  });
+</script>
+</body>
+</html>

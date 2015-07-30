@@ -1,0 +1,13 @@
+// Convert URLs for style guide static paths
+
+url($path) {
+  $path = replace("/static/", "../static/", $path);
+
+  unquote("url(" + $path + ")");
+}
+
+/* ==========================================================================
+   Highlight.js
+   ========================================================================== */
+
+@import "highlight";
